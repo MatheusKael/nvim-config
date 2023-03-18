@@ -1,0 +1,2 @@
+require("mk")
+print("hello")
