@@ -53,12 +53,14 @@ return require('packer').startup(function(use)
     }
 
     use {
-        "folke/todo-comments.nvim",
+        "D:/matheus/Documentos/codigos/personal/projects/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
         config = function()
             require("todo-comments").setup {
+                -- TODO ->
                 highlight = { 
-                    pattern = [[.*<(KEYWORDS)\s*-]],
+                   -- pattern = [[(KEYWORDS|NUMBERS)\s*\d+\s*:]],            
+                   pattern = [[(KEYWORDS)\s*-]],            
                 },
             }
         end
