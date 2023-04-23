@@ -13,15 +13,23 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 
 	}
-	use({
-		'rose-pine/neovim',
-		as = 'rose-pine',
-		config = function()
-			require("rose-pine").setup()
-			vim.cmd('colorscheme rose-pine')
-		end
-	})
-    use('folke/tokyonight.nvim')
+--	use({
+--		'rose-pine/neovim',
+--		as = 'rose-pine',
+--		config = function()
+--			require("rose-pine").setup()
+--			vim.cmd('colorscheme rose-pine')
+--		end
+--	})
+    use({
+        'folke/tokyonight.nvim', 
+        config = function() 
+            require('tokyonight').setup {
+                style = 'night',
+            } 
+            vim.cmd('colorscheme tokyonight')
+        end
+    })
 	use( 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	use( 'nvim-treesitter/playground') 
 	use('nvim-treesitter/nvim-treesitter-context')
