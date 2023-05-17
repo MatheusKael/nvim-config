@@ -22,6 +22,12 @@ return require('packer').startup(function(use)
 --		end
 --	})
     use({
+        'ray-x/go.nvim', 
+        config = function() 
+            require("go").setup()
+        end
+    })
+    use({
         'folke/tokyonight.nvim', 
         config = function() 
             require('tokyonight').setup {
