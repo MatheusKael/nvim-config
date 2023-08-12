@@ -5,9 +5,31 @@ lsp.preset("recommended")
 lsp.ensure_installed({
   'tsserver',
   'rust_analyzer',
-  'pylsp',
-  'gopls'
+  'eslint',
+  'gopls',
+  'sqlls'
 })
+
+
+require'lspconfig'.tsserver.setup{
+    on_attach = function(client) 
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+    end
+}
+
+function lsp.config_null_ls()
+    local null_ls = require('null_ls')
+    
+    null_ls.setup({
+        sources = {
+            null_ls.builtins.formatting.prettier,
+            null_ls.builtins.diagnostics.eslint,
+            null_ls.builtins.formatting.stylua,
+        }, 
+    })
+
+end
 
 -- Fix Undefined global 'vim'
 lsp.configure('lua-language-server', {
