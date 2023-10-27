@@ -7,7 +7,8 @@ lsp.ensure_installed({
   'rust_analyzer',
   'eslint',
   'gopls',
-  'sqlls'
+  'sqlls',
+  'clangd'
 })
 
 
