@@ -1,11 +1,10 @@
-
 function ColorMyPencils(color)
-	color = color or "tokyonight"
+    color = color or "tokyonight"
 
-  vim.cmd.colorscheme(color)
+    vim.cmd.colorscheme(color)
 
-  vim.api.nvim_set_hl(0, "Normal", {bg = "none"} )
-  vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"} )
+    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
 return {
@@ -26,8 +25,31 @@ return {
                     hl.WinSeparator = { fg = "#868eb6" }
                 end
             }
-            vim.cmd("colorscheme tokyonight")
+            --vim.cmd("colorscheme tokyonight")
         end
     },
+    {
+        "scottmckendry/cyberdream.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require("cyberdream").setup({
+                theme = "dark",
+                --transparent = true,
+                italic = false,
+                highlights = {
+                    NonText = { fg = "#97866A", bg = "NONE", italic = true },
+                },
+                styles = {
+                    comments = { italic = false },
+                    keywords = { italic = false },
+                    functions = { bold = true },
+                    variables = { italic = false },
+                    strings = { italic = false },
+                }
+            })
+            vim.cmd("colorscheme cyberdream")
+        end
 
+    }
 }

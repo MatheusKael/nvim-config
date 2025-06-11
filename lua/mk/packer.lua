@@ -4,24 +4,24 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-	-- Packer can manage itself
-  use 'eandrju/cellular-automaton.nvim'
-  use 'wbthomason/packer.nvim'
-  use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.4',
-		-- or                            , branch = '0.1.x',
-		requires = { {'nvim-lua/plenary.nvim'} },
-	}
+    -- Packer can manage itself
+    use 'eandrju/cellular-automaton.nvim'
+    use 'wbthomason/packer.nvim'
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.4',
+        -- or                            , branch = '0.1.x',
+        requires = { { 'nvim-lua/plenary.nvim' } },
+    }
     use({
-        'ray-x/go.nvim', 
-        config = function() 
+        'ray-x/go.nvim',
+        config = function()
             require("go").setup()
         end
     })
-    use ('prettier/vim-prettier')
+    use('prettier/vim-prettier')
     use({
-        'folke/tokyonight.nvim', 
-        config = function() 
+        'folke/tokyonight.nvim',
+        config = function()
             require('tokyonight').setup {
                 on_colors = function(colors)
                     colors.comment = "#868eb6"
@@ -35,38 +35,38 @@ return require('packer').startup(function(use)
                     hl.SignColumn = { fg = hl.SignColumn.fg, bg = "#343953" }
                     hl.WinSeparator = { fg = "#868eb6" }
                 end
-            } 
+            }
         end
     })
     use({
         'jose-elias-alvarez/null-ls.nvim',
     })
-    use( 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-    use( 'nvim-treesitter/playground') 
-    use( 'nvim-treesitter/nvim-treesitter-context')
-    use( 'theprimeagen/harpoon') 
-    use( 'mbbill/undotree') 
-    use( 'tpope/vim-fugitive') 
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    use('nvim-treesitter/playground')
+    use('nvim-treesitter/nvim-treesitter-context')
+    use('theprimeagen/harpoon')
+    use('mbbill/undotree')
+    use('tpope/vim-fugitive')
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
         requires = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
+            { 'neovim/nvim-lspconfig' },
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
 
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-buffer'},
-            {'hrsh7th/cmp-path'},
-            {'saadparwaiz1/cmp_luasnip'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'hrsh7th/cmp-nvim-lua'},
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-path' },
+            { 'saadparwaiz1/cmp_luasnip' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-nvim-lua' },
 
             -- Snippets
-            {'L3MON4D3/LuaSnip'},
-            {'rafamadriz/friendly-snippets'},
+            { 'L3MON4D3/LuaSnip' },
+            { 'rafamadriz/friendly-snippets' },
         }
 
     }
@@ -95,4 +95,3 @@ return require('packer').startup(function(use)
         },
     })
 end)
-
